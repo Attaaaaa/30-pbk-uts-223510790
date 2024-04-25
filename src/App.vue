@@ -1,10 +1,19 @@
-<template>
-  <h1>
-    hello world
-  </h1>
-  <Buttonc/>
-</template>
 
-<script setup>
-import Buttonc from "./components/Buttonc.vue";
-</script>
+<template>
+    <div>
+      <RegistrationForm />
+    </div>
+  </template>
+  
+  <script>
+  import RegistrationForm from './components/RegistrationForm.vue';
+  
+  export default {
+    components: {
+      RegistrationForm
+    }
+  };
+  </script>
+  
+  
+  
