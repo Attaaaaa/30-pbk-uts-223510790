@@ -1,5 +1,6 @@
 <template>
   <div class="form-container">
+    
     <h2>Form Pendaftaran Kegiatan</h2>
     <table>
       <tr>
@@ -33,7 +34,7 @@
         <td>{{ activity.date }}</td>
         <td>{{ activity.time }}</td>
         <td>{{ activity.hobby }}</td>
-        <td><button @click="cancelActivity(index)">Batalkan</button></td>
+        <td><button @click="cancelActivity(index)">Batalkan</button></td> 
       </tr>
     </table>
   </div>
@@ -71,7 +72,7 @@ export default {
     },
     toggleCompletion(activity) {
       if (activity.completed) {
-        // Do something if completed
+       
       }
     }
   }
