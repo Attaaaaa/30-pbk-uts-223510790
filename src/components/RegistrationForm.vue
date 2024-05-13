@@ -1,6 +1,5 @@
 <template>
   <div class="form-container">
-    
     <h2>Form Pendaftaran Kegiatan</h2>
     <table>
       <tr>
