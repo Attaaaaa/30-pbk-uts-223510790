@@ -1,7 +1,7 @@
 <template>
     <div class="post-container">
       <h2>Post</h2>
-      <select v-model="selectedUser" @change="$emit('fetchPosts')">
+      <select v-model="selectUser" @change="$emit('fetchPosts')">
         <option v-for="user in users" :key="user.id" :value="user.id">{{ user.name }}</option>
       </select>
       <div v-for="post in posts" :key="post.id">
