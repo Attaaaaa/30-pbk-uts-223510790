@@ -50,6 +50,7 @@
         newHobby: ''
       };
     },
+    
     methods: {
       addActivity() {
         if (this.newActivity && this.newDate && this.newTime && this.newHobby) {
@@ -70,7 +71,10 @@
         if (activity.completed) {
           // Add your toggle completion logic here
         }
-      }
+      },
+      cancelActivity(index) {
+    this.$emit('cancelActivity', index); // Meneruskan indeks kegiatan yang akan dibatalkan
+  }
     }
   };
   </script>

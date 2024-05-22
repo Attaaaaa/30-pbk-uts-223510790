@@ -1,15 +1,16 @@
 <template>
   <div>
-    <button @click="goToPost">Post</button>
     <button @click="showTodoListForm">TodoList</button>
-    <Todos v-if="!showPost" v-bind:activities="activities" @cancelActivity="cancelActivity" @toggleCompletion="toggleCompletion" />
-    <Post v-if="showPost" v-bind:users="users" v-bind:posts="posts" v-model="selectedUser" @fetchPosts="fetchPosts" />
+    <button @click="goToPost">Post</button>
+    <Todos v-if="!showPost" :activities="activities" @cancelActivity="cancelActivity" @addActivity="addActivity" @toggleCompletion="toggleCompletion" />
+    <Post v-if="showPost" :users="users" />
   </div>
 </template>
 
 <script>
 import Todos from './components/Todos.vue';
 import Post from './components/Post.vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -19,10 +20,8 @@ export default {
   data() {
     return {
       showPost: false,
-      activities: [],
       users: [],
-      selectedUser: null,
-      posts: []
+      activities: []
     };
   },
   methods: {
@@ -33,16 +32,21 @@ export default {
       this.showPost = true;
     },
     async fetchUsers() {
-      // implementation remains the same
+      try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+        this.users = response.data;
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
     },
-    async fetchPosts() {
-      // implementation remains the same
+    addActivity(activity) {
+      this.activities.push(activity);
     },
     cancelActivity(index) {
-      // implementation remains the same
+      this.activities.splice(index, 1);
     },
     toggleCompletion(activity) {
-      // implementation remains the same
+      // implementasi masih sama
     }
   },
   async created() {
