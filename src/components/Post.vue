@@ -4,13 +4,14 @@
     <select v-model="localSelectedUser" @change="handleUserChange">
       <option v-for="user in users" :key="user.id" :value="user.id">{{ user.name }}</option>
     </select>
-    <div v-if="posts && posts.length">
-      <div v-for="post in posts" :key="post.id">
+    <div v-if="posts && posts.length" class="posts-list">
+      <div v-for="post in posts" :key="post.id" class="post-item">
         <h3>{{ post.title }}</h3>
         <p>{{ post.body }}</p>
       </div>
     </div>
     <div v-else>
+      <p>No posts available.</p>
     </div>
   </div>
 </template>
@@ -57,5 +58,25 @@ export default {
 </script>
 
 <style scoped>
-/* styling remains the same */
+.post-container {
+  background-color: #b3ffb3; 
+  padding: 20px;
+  text-align: center; 
+}
+
+.post-container h2 {
+  margin-bottom: 10px;
+}
+
+.posts-list {
+  margin-top: 20px;
+}
+
+.post-item {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 </style>
